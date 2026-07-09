@@ -23,10 +23,10 @@ return {
       map("n", "<Leader>hR", gitsigns.reset_buffer, "Reset buffer")
       map("n", "<Leader>hp", gitsigns.preview_hunk, "Preview hunk")
       map("n", "<Leader>hb", function() gitsigns.blame_line({ full = true }) end, "Blame line")
-      map("n", "<Leader>tb", gitsigns.toggle_current_line_blame, "Toggle line blame")
+      map("n", "<Leader>ug", gitsigns.toggle_current_line_blame, "Toggle line blame")
       map("n", "<Leader>hd", gitsigns.diffthis, "Diff this")
       map("n", "<Leader>hD", function() gitsigns.diffthis("~") end, "Diff this ~")
-      map("n", "<Leader>td", gitsigns.toggle_deleted, "Toggle deleted")
+      map("n", "<Leader>ud", gitsigns.toggle_deleted, "Toggle deleted")
     end,
   },
 }

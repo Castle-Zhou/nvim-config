@@ -54,8 +54,7 @@ return {
       if vim.fn.executable("tree-sitter") == 0 then
         vim.schedule(function()
           vim.notify(
-            "Treesitter: 需要 tree-sitter CLI 来编译 parser。"
-              .. " 请执行: brew install tree-sitter-cli",
+            "Treesitter: tree-sitter CLI not found. Run: brew install tree-sitter-cli",
             vim.log.levels.WARN
           )
         end)

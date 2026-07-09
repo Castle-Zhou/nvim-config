@@ -25,16 +25,16 @@ return {
     -- 全局 on_attach / capabilities 会应用于所有 LSP 服务器
     vim.lsp.config["*"] = {
       on_attach = function(client, bufnr)
-        local bufopts = { noremap = true, silent = true, buffer = bufnr }
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)         -- 跳转到定义
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)     -- 跳转到实现
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)              -- 悬停显示文档
-        vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, bufopts)    -- 重命名
-        vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, bufopts) -- 代码操作
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)        -- 查找引用
-        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, bufopts)      -- 上一个诊断
-        vim.keymap.set("n", "]d", vim.diagnostic.goto_next, bufopts)      -- 下一个诊断
-        vim.keymap.set("n", "<Leader>d", vim.diagnostic.open_float, bufopts) -- 查看诊断详情
+        local buf = { noremap = true, silent = true, buffer = bufnr }
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, vim.tbl_extend("keep", { desc = "Go to Definition" }, buf))
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, vim.tbl_extend("keep", { desc = "Go to Implementation" }, buf))
+        vim.keymap.set("n", "K", vim.lsp.buf.hover, vim.tbl_extend("keep", { desc = "Hover Documentation" }, buf))
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, vim.tbl_extend("keep", { desc = "Find References" }, buf))
+        vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, vim.tbl_extend("keep", { desc = "Prev Diagnostic" }, buf))
+        vim.keymap.set("n", "]d", vim.diagnostic.goto_next, vim.tbl_extend("keep", { desc = "Next Diagnostic" }, buf))
+        vim.keymap.set("n", "<Leader>cr", vim.lsp.buf.rename, vim.tbl_extend("keep", { desc = "Rename" }, buf))
+        vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("keep", { desc = "Code Action" }, buf))
+        vim.keymap.set("n", "<Leader>d", vim.diagnostic.open_float, vim.tbl_extend("keep", { desc = "Open Diagnostic" }, buf))
       end,
       capabilities = (function()
         local caps = vim.lsp.protocol.make_client_capabilities()
@@ -45,5 +45,6 @@ return {
         return caps
       end)(),
     }
+
   end,
 }
