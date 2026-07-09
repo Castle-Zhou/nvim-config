@@ -26,6 +26,7 @@ M.close      = ""
 
 -- Search
 M.search     = ""
+M.telescope  = ""
 
 -- Code / LSP
 M.code       = ""

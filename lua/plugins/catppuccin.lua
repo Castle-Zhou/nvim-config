@@ -17,6 +17,7 @@ return {
         cmp = true,
         treesitter = true,
         mason = true,
+        aerial = true,
         indent_blankline = {
           enabled = true,
           scope_color = "lavender",

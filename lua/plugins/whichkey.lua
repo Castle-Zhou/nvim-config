@@ -7,7 +7,7 @@ return {
     preset = "helix",
     defaults = {},
     spec = {
-      { "<Leader>f", group = "Find",       icon = icons.search },
+      { "<Leader>f", group = "Find",       icon = icons.telescope },
       { "<Leader>b", group = "Buffer",     icon = icons.file },
       { "<Leader>c", group = "Code",       icon = icons.code },
       { "<Leader>h", group = "Hunk",       icon = icons.hunk },
