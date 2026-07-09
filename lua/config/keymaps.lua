@@ -61,6 +61,10 @@ map("n", "x", "\"_x", "Delete (Black Hole)")
 map("n", "r", "\"_r", "Replace (Black Hole)")
 
 -- Buffer
-map("n", "<Leader>bd", "<CMD>bdelete<CR>", "Close Buffer",    icons.close)
-map("n", "H",          "<CMD>bprev<CR>",   "Previous Buffer", icons.left)
-map("n", "L",          "<CMD>bnext<CR>",   "Next Buffer",     icons.right)
+map("n", "<Leader>bd", "<CMD>bdelete<CR>", "Close Buffer",        icons.close)
+map("n", "H",          "<CMD>BufferLineCyclePrev<CR>", "Previous Buffer",     icons.left)
+map("n", "L",          "<CMD>BufferLineCycleNext<CR>", "Next Buffer",         icons.right)
+map("n", "<Leader>bh", "<CMD>BufferLineCyclePrev<CR>", "Previous Buffer",     icons.left)
+map("n", "<Leader>bl", "<CMD>BufferLineCycleNext<CR>", "Next Buffer",         icons.right)
+map("n", "<Leader>bH", "<CMD>BufferLineMovePrev<CR>",  "Move Buffer Left",    icons.left)
+map("n", "<Leader>bL", "<CMD>BufferLineMoveNext<CR>",  "Move Buffer Right",   icons.right)
