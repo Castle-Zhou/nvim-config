@@ -32,7 +32,7 @@ M.code       = ""
 
 -- Git
 M.git        = ""
-M.hunk       = ""
+M.hunk       = ""
 
 -- UI
 M.ui         = ""

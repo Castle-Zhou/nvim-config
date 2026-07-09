@@ -46,6 +46,30 @@ map("n", "<Leader>ub", function()
   end
 end, "Toggle Background")
 
+-- Toggle diagnostic virtual text
+map("n", "<Leader>dt", function()
+  -- _G.__diagnostic_vt_on 在第一次调用时根据当前配置自动判断
+  if _G.__diagnostic_vt_on == nil then
+    _G.__diagnostic_vt_on = vim.diagnostic.config().virtual_text ~= false
+  end
+  _G.__diagnostic_vt_on = not _G.__diagnostic_vt_on
+  vim.diagnostic.config({
+    virtual_text = _G.__diagnostic_vt_on and {
+      prefix = function(diagnostic)
+        local icons = require("utils.icons")
+        local map = {
+          [vim.diagnostic.severity.ERROR] = icons.error,
+          [vim.diagnostic.severity.WARN]  = icons.warning,
+          [vim.diagnostic.severity.HINT]  = icons.hint,
+          [vim.diagnostic.severity.INFO]  = icons.info,
+        }
+        return (map[diagnostic.severity] or icons.info) .. " "
+      end,
+    } or false,
+  })
+  vim.notify((_G.__diagnostic_vt_on and " " or " ") .. "Diagnostic inline " .. (_G.__diagnostic_vt_on and "on" or "off"))
+end, "Toggle diagnostic inline")
+
 -- Command-line navigation
 map("c", "<C-a>", "<Home>",  "Go to Beginning of Line")
 map("c", "<C-e>", "<End>",   "Go to End of Line")

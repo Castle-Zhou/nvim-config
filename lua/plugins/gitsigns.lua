@@ -27,6 +27,8 @@ return {
       map("n", "<Leader>hd", gitsigns.diffthis, "Diff this")
       map("n", "<Leader>hD", function() gitsigns.diffthis("~") end, "Diff this ~")
       map("n", "<Leader>ud", gitsigns.toggle_deleted, "Toggle deleted")
+      map("n", "[h", gitsigns.prev_hunk, "Prev hunk")
+      map("n", "]h", gitsigns.next_hunk, "Next hunk")
     end,
   },
 }
