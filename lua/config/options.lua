@@ -43,6 +43,13 @@ vim.opt.shortmess:append "sI" -- 去掉启动提示
 
 -- 诊断图标
 local icons = require("utils.icons")
+
+-- 预定义诊断符号（Telescope 通过 sign_getdefined 读取）
+vim.fn.sign_define("DiagnosticSignError", { text = icons.error, texthl = "DiagnosticSignError" })
+vim.fn.sign_define("DiagnosticSignWarn",  { text = icons.warning, texthl = "DiagnosticSignWarn" })
+vim.fn.sign_define("DiagnosticSignHint",  { text = icons.hint, texthl = "DiagnosticSignHint" })
+vim.fn.sign_define("DiagnosticSignInfo",  { text = icons.info, texthl = "DiagnosticSignInfo" })
+
 vim.diagnostic.config({
   signs = {
     text = {

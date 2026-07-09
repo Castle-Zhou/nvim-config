@@ -31,7 +31,7 @@ M.search     = ""
 M.code       = ""
 
 -- Git
-M.git        = ""
+M.git        = ""
 M.hunk       = ""
 
 -- UI

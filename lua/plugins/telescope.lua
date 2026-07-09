@@ -53,6 +53,11 @@ return {
     { "<Leader>fb", "<Cmd>Telescope buffers<CR>", desc = "Find buffers" },
     { "<Leader>fh", "<Cmd>Telescope help_tags<CR>", desc = "Help tags" },
     { "<Leader>fs", "<Cmd>Telescope lsp_document_symbols<CR>", desc = "Document symbols" },
+    { "<Leader>fd", "<Cmd>Telescope diagnostics bufnr=0<CR>", desc = "File diagnostics" },
+    { "<Leader>fD", "<Cmd>Telescope diagnostics<CR>", desc = "Workspace diagnostics" },
+    { "<Leader>gs", "<Cmd>Telescope git_status<CR>", desc = "Git status / diff" },
+    { "<Leader>gc", "<Cmd>Telescope git_commits<CR>", desc = "Git commits" },
+    { "<Leader>gb", "<Cmd>Telescope git_bcommits<CR>", desc = "Git buffer commits" },
   },
   config = function()
     require("telescope").setup({
@@ -66,5 +71,23 @@ return {
       },
     })
     pcall(require("telescope").load_extension, "fzf")
+
+    -- which-key 图标
+    local icons = require("utils.icons")
+    local wk = require("which-key")
+    wk.add({
+      { "<Leader>ff", icon = icons.search },
+      { "<Leader><Leader>", icon = icons.search },
+      { "<Leader>fg", icon = icons.search },
+      { "<Leader>/",  icon = icons.search },
+      { "<Leader>fb", icon = icons.file },
+      { "<Leader>fh", icon = icons.search },
+      { "<Leader>fs", icon = icons.code },
+      { "<Leader>fd", icon = icons.warning },
+      { "<Leader>fD", icon = icons.warning },
+      { "<Leader>gs", icon = icons.git },
+      { "<Leader>gc", icon = icons.git },
+      { "<Leader>gb", icon = icons.git },
+    })
   end,
 }
