@@ -33,6 +33,7 @@ return {
         vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, vim.tbl_extend("keep", { desc = "Prev Diagnostic" }, buf))
         vim.keymap.set("n", "]d", vim.diagnostic.goto_next, vim.tbl_extend("keep", { desc = "Next Diagnostic" }, buf))
         vim.keymap.set("n", "<Leader>cr", vim.lsp.buf.rename, vim.tbl_extend("keep", { desc = "Rename" }, buf))
+        vim.keymap.set("n", "<Leader>cf", vim.lsp.buf.format, vim.tbl_extend("keep", { desc = "Format" }, buf))
         vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, vim.tbl_extend("keep", { desc = "Code Action" }, buf))
         vim.keymap.set("n", "<Leader>d", vim.diagnostic.open_float, vim.tbl_extend("keep", { desc = "Open Diagnostic" }, buf))
       end,
