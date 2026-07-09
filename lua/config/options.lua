@@ -40,3 +40,16 @@ vim.opt.sidescrolloff = 8     -- 水平滚动保留左右 8 列
 vim.opt.pumheight = 10        -- 弹出菜单最多显示 10 项
 vim.opt.completeopt = "menu,menuone,noselect"
 vim.opt.shortmess:append "sI" -- 去掉启动提示
+
+-- 诊断图标
+local icons = require("utils.icons")
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = icons.error,
+      [vim.diagnostic.severity.WARN]  = icons.warning,
+      [vim.diagnostic.severity.HINT]  = icons.hint,
+      [vim.diagnostic.severity.INFO]  = icons.info,
+    },
+  },
+})

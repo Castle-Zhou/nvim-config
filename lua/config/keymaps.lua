@@ -1,25 +1,26 @@
 -- 快捷键映射
 
 local map = require("utils.map").map
+local icons = require("utils.icons")
 
--- 将 <Leader> 从等待模式中解放出来
+-- Free up <Leader>
 map("n", "<Space>", "")
 
 -- Window navigation
-map("n", "<C-h>", "<C-w>h", "Go to Left Window",      "")
-map("n", "<C-j>", "<C-w>j", "Go to Bottom Window",    "")
-map("n", "<C-k>", "<C-w>k", "Go to Top Window",       "")
-map("n", "<C-l>", "<C-w>l", "Go to Right Window",     "")
+map("n", "<C-h>", "<C-w>h", "Go to Left Window",   icons.left)
+map("n", "<C-j>", "<C-w>j", "Go to Bottom Window", icons.down)
+map("n", "<C-k>", "<C-w>k", "Go to Top Window",    icons.up)
+map("n", "<C-l>", "<C-w>l", "Go to Right Window",  icons.right)
 
 -- Window resize
-map("n", "<M-up>",    "<CMD>resize +2<CR>",          "Increase Height",     "")
-map("n", "<M-down>",  "<CMD>resize -2<CR>",          "Decrease Height",     "")
-map("n", "<M-right>", "<CMD>vertical resize +2<CR>", "Increase Width",      "")
-map("n", "<M-left>",  "<CMD>vertical resize -2<CR>", "Decrease Width",      "")
+map("n", "<M-up>",    "<CMD>resize +2<CR>",          "Increase Height", icons.resize_up)
+map("n", "<M-down>",  "<CMD>resize -2<CR>",          "Decrease Height", icons.resize_down)
+map("n", "<M-right>", "<CMD>vertical resize +2<CR>", "Increase Width",  icons.resize_right)
+map("n", "<M-left>",  "<CMD>vertical resize -2<CR>", "Decrease Width",  icons.resize_left)
 
 -- Scroll (keep cursor centered)
-map("n", "<C-d>", "<C-d>zz", "Scroll Down Half",      "")
-map("n", "<C-u>", "<C-u>zz", "Scroll Up Half",        "")
+map("n", "<C-d>", "<C-d>zz", "Scroll Down Half", icons.resize_down)
+map("n", "<C-u>", "<C-u>zz", "Scroll Up Half",   icons.resize_up)
 
 -- Clear search highlight
 map("n", "<Esc>", "<CMD>nohlsearch<CR><Esc>", "Clear Search Highlight")
@@ -60,6 +61,6 @@ map("n", "x", "\"_x", "Delete (Black Hole)")
 map("n", "r", "\"_r", "Replace (Black Hole)")
 
 -- Buffer
-map("n", "<Leader>bd", "<CMD>bdelete<CR>", "Close Buffer",       "")
-map("n", "H",          "<CMD>bprev<CR>",   "Previous Buffer",    "")
-map("n", "L",          "<CMD>bnext<CR>",   "Next Buffer",        "")
+map("n", "<Leader>bd", "<CMD>bdelete<CR>", "Close Buffer",    icons.close)
+map("n", "H",          "<CMD>bprev<CR>",   "Previous Buffer", icons.left)
+map("n", "L",          "<CMD>bnext<CR>",   "Next Buffer",     icons.right)

@@ -1,3 +1,5 @@
+local icons = require("utils.icons")
+
 return {
   "folke/which-key.nvim",
   event = "VeryLazy",
@@ -5,16 +7,16 @@ return {
     preset = "helix",
     defaults = {},
     spec = {
-      { "<Leader>f", group = "Find",       icon = "" },
-      { "<Leader>b", group = "Buffer",     icon = "" },
-      { "<Leader>c", group = "Code",       icon = "" },
-      { "<Leader>h", group = "Hunk",       icon = "" },
-      { "<Leader>u", group = "UI/Toggle",  icon = "" },
-      { "<Leader>g", group = "Git",        icon = "" },
-      { "<Leader>l", group = "LSP",        icon = "" },
-      { "<Leader>d", group = "Diagnostic", icon = "" },
-      { "[", group = "Prev",               icon = "" },
-      { "]", group = "Next",               icon = "" },
+      { "<Leader>f", group = "Find",       icon = icons.search },
+      { "<Leader>b", group = "Buffer",     icon = icons.file },
+      { "<Leader>c", group = "Code",       icon = icons.code },
+      { "<Leader>h", group = "Hunk",       icon = icons.hunk },
+      { "<Leader>u", group = "UI/Toggle",  icon = icons.ui },
+      { "<Leader>g", group = "Git",        icon = icons.git },
+      { "<Leader>l", group = "LSP",        icon = icons.code },
+      { "<Leader>d", group = "Diagnostic", icon = icons.warning },
+      { "[", group = "Prev",               icon = icons.left },
+      { "]", group = "Next",               icon = icons.right },
     },
   },
   config = function(_, opts)

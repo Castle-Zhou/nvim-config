@@ -10,13 +10,21 @@ return {
   keys = {
     { "<Leader>e", "<Cmd>Neotree toggle<CR>", desc = "Toggle file tree" },
   },
+  init = function()
+    vim.schedule(function()
+      local ok, wk = pcall(require, "which-key")
+      if ok then
+        wk.add({ { "<Leader>e", icon = "" } })
+      end
+    end)
+  end,
   opts = {
     filesystem = {
       window = {
         mappings = {
-          -- l: 展开目录或打开文件; h: 折叠目录/返回父节点
           ["l"] = "open",
           ["h"] = "close_node",
+          ["<space>"] = false, -- 让空格只作为 <Leader> 使用
         },
       },
       filtered_items = {
