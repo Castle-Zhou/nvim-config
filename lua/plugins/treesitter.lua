@@ -3,29 +3,10 @@ return {
   lazy = false,
   build = ":TSUpdate",
   config = function()
-    require("nvim-treesitter").setup({
-      ensure_installed = {
-        "lua",
-        "vim",
-        "vimdoc",
-        "javascript",
-        "typescript",
-        "python",
-        "rust",
-        "go",
-        "c",
-        "cpp",
-        "html",
-        "css",
-        "json",
-        "yaml",
-        "toml",
-        "markdown",
-        "bash",
-        "sql",
-        "gitignore",
-        "diff",
-      },
+    require("nvim-treesitter").setup()
+    -- 启用 treesitter 高亮（master 分支需手动调 configs.setup）
+    require("nvim-treesitter.configs").setup({
+      highlight = { enable = true },
     })
   end,
 }
