@@ -11,7 +11,7 @@ return {
       ensure_installed = {
         "clangd",
         "lua_ls",
-        "ts_ls",
+        "vtsls",
         "pyright",
         "rust_analyzer",
         "jsonls",
