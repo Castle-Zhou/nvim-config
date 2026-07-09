@@ -4,7 +4,6 @@ return {
   lazy = false,
   build = ":TSUpdate",
   opts = {
-    highlight = { enable = true },
     ensure_installed = {
       "javascript",
       "typescript",
@@ -40,8 +39,8 @@ return {
       end
     end
 
-    -- 2) 初始化 treesitter
-    require("nvim-treesitter").setup(opts)
+    -- 2) 初始化（main 分支只处理 install_dir，highlight / ensure_installed 是摆设）
+    require("nvim-treesitter").setup()
 
     -- 3) 自动安装缺失的 parser
     local installed = require("nvim-treesitter.config").get_installed()
@@ -66,5 +65,17 @@ return {
         end)
       end
     end
+
+    -- 4) 启用 treesitter 高亮（main 分支不自带，需要手动调 vim.treesitter.start）
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = {
+        "javascript", "typescript", "javascriptreact", "typescriptreact",
+        "lua", "vim", "python", "rust", "go", "c", "cpp",
+        "html", "css", "json", "yaml", "toml", "markdown", "bash", "sql",
+      },
+      callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+      end,
+    })
   end,
 }
