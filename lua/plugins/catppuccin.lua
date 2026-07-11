@@ -18,6 +18,7 @@ return {
         treesitter = true,
         mason = true,
         aerial = true,
+        todo_comments = true,
         indent_blankline = {
           enabled = true,
           scope_color = "lavender",
